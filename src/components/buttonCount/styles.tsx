@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const ButtonLink = styled.a `
+export const Button = styled.button `
   position: relative;
 `
 export const Count = styled.span `

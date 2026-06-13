@@ -1,15 +1,15 @@
 import React from "react";
-import { ButtonLink, Count } from './styles.tsx';
+import { Button, Count } from './styles.tsx';
 
 export default function ButtonCount(props) {
     return (
-      <ButtonLink 
-        type="link"
-        href={props.url} 
+      <Button 
+        type="button"
         className={`p-2 dark:text-white`}
+        onClick={props.onClick}
       > 
         {props.name} 
         {props.count > 0 && <Count> {props.count} </Count>}
-      </ButtonLink>
+      </Button>
     )
 }

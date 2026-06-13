@@ -1,4 +1,4 @@
-# REACT -> Ecommerce - https://kalles-5-2.myshopify.com/
+# REACT -> Ecommerce - https://kalles-5-2.myshopify.com/ pass - 4
 
 Projeto de estudo em React com gerenciamento de estado global via **Redux Toolkit**, listagem de produtos, carrinho e favoritos. A aplicação foi criada com [Create React App](https://github.com/facebook/create-react-app) e utiliza roteamento, formulários, requisições HTTP e múltiplas abordagens de estilização.
 
@@ -206,7 +206,7 @@ A aplicação combina três abordagens:
 
 - **Tailwind CSS** — classes utilitárias em páginas, header e layout (`darkMode: 'class'` no `tailwind.config.js`).
 - **SCSS** — estilos em `cart/styles.scss` e `favorites/styles.scss`.
-- **styled-components** — componentes `ContentBody`, `CardProductImage`, `ButtonLink`, `Count`, etc.
+- **styled-components** — componentes `ContentBody`, `CardProductImage`, `Button`, `Count`, etc.
 
 ---
 
