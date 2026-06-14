@@ -1,5 +1,4 @@
-import { useState } from "react";
-import CardProduct from "../card-product/CardProduct";
+// import CardProduct from "../card-product/CardProduct";
 import { useSelector } from "react-redux";
 import './styles.scss';
 import ButtonCount from "../buttonCount/ButtonCount";
