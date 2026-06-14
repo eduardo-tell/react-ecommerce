@@ -1,6 +1,6 @@
 {
-  "name": "reacte",
-  "version": "1.0.0",
+  "name": "react-ecommerce",
+  "version": "1.1.0",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
@@ -49,5 +49,8 @@
     "sass": "^1.58.3",
     "tailwindcss": "^3.2.7",
     "styled-components": "^6.0.0-rc.1"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
