@@ -8,7 +8,7 @@ export default function ButtonCount(props) {
         className={`p-2 dark:text-white`}
         onClick={props.onClick}
       > 
-        {props.name} 
+        <img src={props.src} alt={props.name} width="20" height="20" /> 
         {props.count > 0 && <Count> {props.count} </Count>}
       </Button>
     )
