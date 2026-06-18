@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Favorites from "../favorites/Favorites";
 import Cart from "../cart/Cart";
+import Search from "../search/Search";
 
 export default function Header() {
     return (
@@ -11,12 +11,10 @@ export default function Header() {
                     <li className="flex">
                         <button className="rounded-lg"> <Link to="/" className="border-b-2 border-black p-2">Início</Link> </button>
                     </li>
-                    {/* <li>
-                        <button className="rounded-lg p-2"> <Link to="/repositorio" className="dark:text-white">Detalhes</Link> </button>
-                    </li> */}
                 </ul>
                 <h1 className="text-4xl font-bold leading-8"> E-commerce </h1>
                 <div className="flex p-2">
+                    <Search icon='./search.svg' />
                     <Cart icon='./cart-icon.svg' />
                 </div>
             </nav>
