@@ -10,6 +10,11 @@ export const ContentBody = styled.div`
             opacity: 1;
         }
     }
+
+    &.card-product-inside {
+        aspect-ratio: 2/1;
+        height: 131px;
+    }
 `
 export const CardProductImage = styled.div`
     picture {

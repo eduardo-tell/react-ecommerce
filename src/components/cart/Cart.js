@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useSelector } from "react-redux";
 import './styles.scss';
 import ButtonCount from "../buttonCount/ButtonCount";
+import CardProduct from "../cardProduct/CardProduct";
 
 export default function Cart({icon}) {
   const cartProducts = useSelector(state => state.cartProducts)
@@ -24,40 +25,9 @@ export default function Cart({icon}) {
           <div className="cart-drawer__inner flex justify-start align-top transition-all duration-250 ease-in-out">
             <form action="/cart" id="CartDrawer-Form" method="POST">
               {cartProducts?.map(cartProduct => {
+                cartProduct = { ...cartProduct, className: "card-product-inside" }
                 return (
-                    console.log(cartProduct),
-
-                    <div key={cartProduct.id} className="">
-                      <div className="">
-                        <a href="/products/ninebot-mini-pro?variant=47130213548288" className="" style={{ '--aspect-ratioapt': '0.9975' }}>
-                          <img src="" alt="" width="120" height="120" loading="lazy" sizes="(max-width: 1024px) 80px, 160px" />
-                        </a>
-                      </div>
-                      <div className="">
-                        <a href="/products/ninebot-mini-pro?variant=47130213548288" className=""> {cartProduct.title} </a>
-                        <div className="">
-                          <div className="">
-                            <div className="">
-                              <span className="">{cartProduct.price?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="actions">
-                          <div className="hdt-flex hdt-align-center hdt-justify-start">
-                            <div inner="" placement="top" style={{ marginInlineEnd: '10px' }}>
-                              <div className="hdt-inline-flex hdt-align-center" data-index="1" form="id:CartDrawer-Form">
-                                {/* <a href="/cart/change?line=1&amp;quantity=0" className="">
-                                  <svg viewBox="0 0 24 24" width="17">
-                                    <use href="#icon-cart-remove"></use>
-                                  </svg>
-                                  <span className="sr-only">Remove item</span>
-                                </a> */}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <CardProduct key={cartProduct.id} props={cartProduct} />
                 )
               })}
             </form>

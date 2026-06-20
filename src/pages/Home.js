@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import CardProduct from '../components/card-product/CardProduct';
+import CardProduct from '../components/cardProduct/CardProduct';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../features/products/products';
 import { useFetch } from '../hooks/useFetch';
+import HeroBanner from '../components/heroBanner/HeroBanner';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -22,8 +23,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="p-6 dark:bg-slate-800">
-        <main className="main-content">
+      <main>
+        <HeroBanner />
+        <div className="main-content">
           <fieldset className='container m-auto'>
             <input itemType='text' name='busca' placeholder='Buscar...' onChange={e => setSearch(e.target.value)} value={search} className="border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-blue-600 block w-full rounded sm:text-xl focus:ring-1" />
           </fieldset>
@@ -36,9 +38,9 @@ export default function Home() {
                 )
               })}
             </div>
-          </div>
-        </main>
-      </div>
+          </div>            
+        </div>
+      </main>
     </>
   );
 }
