@@ -1,19 +1,35 @@
 import styled from 'styled-components'
 
-export const ContentBody = styled.div`
-    aspect-ratio: 1/1;
-    position: relative;
+export const ButtonFavorite = styled.button`
+    z-index: 10;
+`;
 
-    &:hover {
-        .CardProductStyle__actions {
-            z-index: 10;
-            opacity: 1;
-        }
+export const ButtonCart = styled.button`
+    z-index: 10;
+    opacity: 0;
+    transform: translateX(160px);
+    transition: all 0.2s ease-in-out;
+
+    &.active {
+        background-color: white;
+        transform: translateX(0);
+        opacity: 1;
     }
-
+    
     &.card-product-inside {
         aspect-ratio: 2/1;
         height: 131px;
+    }
+`;
+
+export const ContentBody = styled.div`
+    aspect-ratio: 1/1;
+    position: relative;
+    overflow: hidden;
+
+    &:hover > .card-product__actions button {
+        opacity: 1;
+        transform: translateX(0);
     }
 `
 export const CardProductImage = styled.div`
@@ -44,10 +60,5 @@ export const CardProductContent = styled.div`
     justify-content: center;
 
     position: absolute;
-    z-index: 0;
     bottom: 0;
-`
-
-export const CardProductActions = styled.div`
-    opacity: 0;
 `
