@@ -2,18 +2,22 @@ import styled from 'styled-components'
 
 export const ButtonFavorite = styled.button`
     z-index: 10;
-`;
-
-export const ButtonCart = styled.button`
-    z-index: 10;
-    opacity: 0;
     transform: translateX(160px);
-    transition: all 0.2s ease-in-out;
 
     &.active {
         background-color: white;
         transform: translateX(0);
         opacity: 1;
+    }
+`;
+
+export const ButtonCart = styled.button`
+    z-index: 10;
+    transform: translateX(160px);
+
+    &.active {
+        background-color: white;
+        transform: translateX(0);
     }
     
     &.card-product-inside {
@@ -28,7 +32,6 @@ export const ContentBody = styled.div`
     overflow: hidden;
 
     &:hover > .card-product__actions button {
-        opacity: 1;
         transform: translateX(0);
     }
 `
