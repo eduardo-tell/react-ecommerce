@@ -23,7 +23,7 @@ export default function Cart({icon}) {
             </button>
           </div>
           <div className="cart-drawer__inner flex justify-start align-top transition-all duration-250 ease-in-out">
-            <form action="/cart" id="CartDrawer-Form" method="POST">
+            <form action="/cart" className="flex flex-col gap-4 w-full" id="CartDrawer-Form" method="POST">
               {cartProducts?.map(cartProduct => {
                 cartProduct = { ...cartProduct, className: "card-product-inside" }
                 return (

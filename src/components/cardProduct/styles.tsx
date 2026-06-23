@@ -19,11 +19,6 @@ export const ButtonCart = styled.button`
         background-color: white;
         transform: translateX(0);
     }
-    
-    &.card-product-inside {
-        aspect-ratio: 2/1;
-        height: 131px;
-    }
 `;
 
 export const ContentBody = styled.div`
@@ -33,6 +28,19 @@ export const ContentBody = styled.div`
 
     &:hover > .card-product__actions button {
         transform: translateX(0);
+    }
+    
+    &.card-product-inside {
+        aspect-ratio: 2/1;
+        height: 131px;
+
+        .CardProductStyle__image {
+            width: 131px;
+        }
+
+        .CardProductStyle__content {
+            width: calc(100% - 131px);
+        }
     }
 `
 export const CardProductImage = styled.div`
