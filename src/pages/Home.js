@@ -26,10 +26,6 @@ export default function Home() {
       <main>
         <HeroBanner />
         <div className="main-content">
-          <fieldset className='container m-auto'>
-            <input itemType='text' name='busca' placeholder='Buscar...' onChange={e => setSearch(e.target.value)} value={search} className="border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-blue-600 block w-full rounded sm:text-xl focus:ring-1" />
-          </fieldset>
-
           <div className="container m-auto">
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7">
               {filteredProducts?.map(product => {
