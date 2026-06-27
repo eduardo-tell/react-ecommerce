@@ -22,14 +22,14 @@ export default function CardProduct({props}) {
 
     return (
         <ContentBody className={props.className}>
-            <CardProductImage className="CardProductStyle__images">
+            <CardProductImage>
                 <picture>
                     <img src={props.thumbnail} alt="Imagem do produto" />
                 </picture>
             </CardProductImage>
             <CardProductContent className="CardProductStyle__content w-full text-center">
-                <h4><b>{ props.title }</b></h4>
-                <p><b> R${ props.price } </b></p>
+                <h4>{ props.title }</h4>
+                <p>R${ props.price }</p>
             </CardProductContent>
             <div className="absolute justify-end top-0 right-0 flex flex-col gap-2 p-2 card-product__actions">
                 {showActions && (

@@ -22,9 +22,12 @@ export const ButtonCart = styled.button`
 `;
 
 export const ContentBody = styled.div`
-    aspect-ratio: 1/1.2;
+    aspect-ratio: 1/1.3;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
 
     &:hover > .card-product__actions button {
         transform: translateX(0);
@@ -48,6 +51,7 @@ export const CardProductImage = styled.div`
     overflow: hidden;
     position: relative;
     aspect-ratio: 1 / 1;
+    width: 50%;
 
     picture {
         top: 0;
@@ -70,4 +74,5 @@ export const CardProductImage = styled.div`
 
 export const CardProductContent = styled.div`
     width: 100%;
+    padding: 8px;
 `
