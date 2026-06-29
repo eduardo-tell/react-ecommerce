@@ -8,7 +8,7 @@ import HeroBanner from '../components/heroBanner/HeroBanner';
 export default function Home() {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
-  const [search, setSearch] = useState('');
+  const [search] = useState('');
   const { data: productsStart } = useFetch('https://dummyjson.com/products?limit=8');
 
   useEffect(() => {
@@ -17,9 +17,7 @@ export default function Home() {
     }
   }, [productsStart, dispatch]);
 
-  const filteredProducts = search.length > 0
-    ? products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
-    : products;
+  const filteredProducts = search.length > 0 ? products.filter(product => product.title.toLowerCase().includes(search.toLowerCase())) : products;
 
   return (
     <>
