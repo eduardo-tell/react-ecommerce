@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ButtonCount from "../buttonCount/ButtonCount";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function Search({icon}) {
-  const [search, setSearch] = useState('');
-  const products = useSelector(state => state.products);
+  // const [search, setSearch] = useState('');
+  // const products = useSelector(state => state.products);
 
-  const filteredProducts = search.length > 0
-    ? products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
-    : products;
+  // const filteredProducts = search.length > 0
+  //   ? products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
+  //   : products;
 
   return (
     <>
