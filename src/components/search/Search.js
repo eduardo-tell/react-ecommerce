@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ButtonCount from "../buttonCount/ButtonCount";
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 export default function Search({icon}) {
   // const [search, setSearch] = useState('');
