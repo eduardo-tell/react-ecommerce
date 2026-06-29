@@ -26,7 +26,7 @@ export const ContentBody = styled.div`
     position: relative;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: start;
 
     &:hover > .card-product__actions button {
@@ -36,13 +36,20 @@ export const ContentBody = styled.div`
     &.card-product-inside {
         aspect-ratio: 2/1;
         height: 131px;
+        flex-direction: row;
 
         .CardProductStyle__image {
             width: 131px;
         }
 
         .CardProductStyle__content {
+            padding: 0 0 0 8px;
             width: calc(100% - 131px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: start;
         }
     }
 `
@@ -51,7 +58,6 @@ export const CardProductImage = styled.div`
     overflow: hidden;
     position: relative;
     aspect-ratio: 1 / 1;
-    width: 50%;
 
     picture {
         top: 0;
