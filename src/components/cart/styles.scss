@@ -45,13 +45,13 @@
 
         &__header {
             height: 51px;
-            padding: 0 2rem 0 2rem;
+            padding: 0 1rem;
         }
 
         &__inner {
             height: calc(100% - 51px);
             top: 51px;
-            padding: 2rem;
+            padding: 1rem;
         }
     }
 

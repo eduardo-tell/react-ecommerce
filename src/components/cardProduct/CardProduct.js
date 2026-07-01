@@ -29,7 +29,19 @@ export default function CardProduct({props}) {
             </CardProductImage>
             <CardProductContent className="CardProductStyle__content w-full text-center">
                 <h4>{ props.title }</h4>
-                <p>R${ props.price }</p>
+
+                <div className={props.className === 'card-product-inside' ? 'flex w-full justify-between' : null }>
+                    <p>R${ props.price }</p>
+                    {props.className === "card-product-inside" ?
+                        <ButtonCart 
+                            className={`ease-linear duration-200 flex-auto p-2 bg-white hover:!bg-[#c83a3a] w-[36px] h-[36px] ${productcart ? "active" : ""}`} 
+                            onClick={cartHandler}
+                            aria-label="Adicionar ao carrinho"
+                        > 
+                            <img src="/cart-icon.svg" alt="Carrinho" /> 
+                        </ButtonCart>
+                    : null }
+                </div>
             </CardProductContent>
             <div className="absolute justify-end top-0 right-0 flex flex-col gap-2 p-2 card-product__actions">
                 {showActions && (

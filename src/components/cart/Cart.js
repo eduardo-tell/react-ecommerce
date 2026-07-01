@@ -15,7 +15,9 @@ export default function Cart({icon}) {
 
         <div id="CartDrawer" ref={dialogRef}>
           <div className="cart-drawer__header transition-all flex justify-between align-middle duration-250 ease-in-out">
-            <h3 className="flex">Seu Carrinho</h3>
+            <div className="py-4">
+              <h3>Seu Carrinho</h3>
+            </div>
             <button ref={closeButtonRef} className="p-4" onClick={(e) => document.getElementById('CartDrawer').classList.toggle('open')}>
               <svg part="hdt-close-icon" role="presentation" fill="none" focusable="false" width="16" height="14" viewBox="0 0 16 14">
                 <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none"></path>
