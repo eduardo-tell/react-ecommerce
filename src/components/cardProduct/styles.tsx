@@ -38,11 +38,15 @@ export const ContentBody = styled.div`
         height: 131px;
         flex-direction: row;
 
-        .CardProductStyle__image {
+        .card-product__value {
+            width: calc(100% - 36px);
+        }
+
+        .card-product__image {
             width: 131px;
         }
 
-        .CardProductStyle__content {
+        .card-product__content {
             padding: 0 0 0 8px;
             width: calc(100% - 131px);
             display: flex;

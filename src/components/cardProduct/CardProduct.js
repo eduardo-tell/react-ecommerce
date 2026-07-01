@@ -6,11 +6,15 @@ import { ButtonFavorite, ButtonCart, ContentBody, CardProductImage, CardProductC
 
 export default function CardProduct({props}) {
     const dispatch = useDispatch();
-    const [productcart, setProductcart] = React.useState(useSelector(state => state.cartProducts).find((product) => product.id === props.id));
+    const productcart = useSelector((state) => {
+        const cartProducts = state.cartProducts;
+        const matchingProduct = cartProducts.find((product) => product.id === props.id);
+        const isProductInCart = Boolean(matchingProduct);
+        return isProductInCart;
+    });
     const [productfavorite, setProductfavorite] = React.useState(false);
 
     const cartHandler = () => {
-        setProductcart(!productcart);
         dispatch(toggleCartProduct(props));
     }
 
@@ -27,11 +31,11 @@ export default function CardProduct({props}) {
                     <img src={props.thumbnail} alt="Imagem do produto" />
                 </picture>
             </CardProductImage>
-            <CardProductContent className="CardProductStyle__content w-full text-center">
+            <CardProductContent className="card-product__content w-full text-center">
                 <h4>{ props.title }</h4>
 
                 <div className={props.className === 'card-product-inside' ? 'flex w-full justify-between' : null }>
-                    <p>R${ props.price }</p>
+                    <p className="card-product__value">R${ props.price }</p>
                     {props.className === "card-product-inside" ?
                         <ButtonCart 
                             className={`ease-linear duration-200 flex-auto p-2 bg-white hover:!bg-[#c83a3a] w-[36px] h-[36px] ${productcart ? "active" : ""}`} 
