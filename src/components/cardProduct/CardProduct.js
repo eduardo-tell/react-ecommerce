@@ -42,7 +42,7 @@ export default function CardProduct({props}) {
                             onClick={cartHandler}
                             aria-label="Adicionar ao carrinho"
                         > 
-                            <img src="/cart-icon.svg" alt="Carrinho" /> 
+                            <img src="/trash.svg" alt="Remover do carrinho" /> 
                         </ButtonCart>
                     : null }
                 </div>
@@ -51,15 +51,17 @@ export default function CardProduct({props}) {
                 {showActions && (
                     <div className="absolute justify-end top-0 right-0 flex flex-col gap-2 p-2 card-product__actions">
                         <ButtonCart 
-                            className={`ease-linear duration-200 flex-auto p-2 bg-white hover:!bg-[#A3F7BF] w-[36px] h-[36px] ${productcart ? "active" : ""}`} 
+                            className={`ease-linear duration-200 flex-auto p-2 bg-white w-[30px] h-[30px] ${productcart ? "active" : ""}`} 
                             onClick={cartHandler}
                             aria-label="Adicionar ao carrinho"
                         > 
-                            <img src="/cart-icon.svg" alt="Carrinho" /> 
+                            <img src="/cart-add-icon.svg" className="default" alt="Carrinho" /> 
+                            <img src="/cart-add-icon-hover.svg" className="hover-active hidden" alt="Carrinho" /> 
+                            <img src="/cart-remove-icon.svg" className="remove-hover hidden" alt="Carrinho" /> 
                         </ButtonCart>
 
                         <ButtonFavorite 
-                            className={`ease-linear duration-200 delay-100 flex-auto p-2 bg-white hover:!bg-[#A3F7BF] w-[36px] h-[36px] ${productfavorite ? "active" : ""}`} 
+                            className={`ease-linear duration-200 delay-100 flex-auto p-2 bg-white w-[30px] h-[30px] ${productfavorite ? "active" : ""}`} 
                             onClick={favoriteHandler}
                             aria-label="Adicionar aos favoritos"
                         > 

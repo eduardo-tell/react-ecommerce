@@ -18,6 +18,28 @@ export const ButtonCart = styled.button`
     &.active {
         background-color: white;
         transform: translateX(0);
+
+        img.hover-active {
+            display: block;
+        }
+
+        img.default {
+            display: none;    
+        }
+
+        &:hover {
+            img.remove-hover {
+                display: block !important;
+            }
+
+            img.default {
+                display: none !important;    
+            }
+
+            img.hover-active {
+                display: none !important;  
+            }
+        }
     }
 `;
 
@@ -31,6 +53,16 @@ export const ContentBody = styled.div`
 
     &:hover > .card-product__actions button {
         transform: translateX(0);
+
+        &:hover {
+            img.hover-active {
+                display: block;
+            }
+
+            img.default {
+                display: none;    
+            }
+        }
     }
     
     &.card-product-inside {
@@ -54,6 +86,12 @@ export const ContentBody = styled.div`
             justify-content: space-between;
             align-items: flex-start;
             text-align: start;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
 `
