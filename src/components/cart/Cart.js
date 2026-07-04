@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import './styles.scss';
 import ButtonCount from "../buttonCount/ButtonCount";
@@ -9,16 +9,34 @@ export default function Cart({icon}) {
   const dialogRef = useRef(null)
   const closeButtonRef = useRef(null)
 
+  const toggleCartDrawer = (action) => {
+    return () => {
+      if (action === '1') {
+        dialogRef.current?.classList.add('open')
+      } else {
+        dialogRef.current?.classList.remove('open')
+      }
+    }
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!dialogRef.current || dialogRef.current.contains(event.target)) return
+
+      toggleCartDrawer('0')
+    }
+
+    document.addEventListener('click', handleClickOutside)
+  }, [])
+
   return (
     <>
-        <ButtonCount src={icon} count={cartProducts?.length} name="Carrinho" onClick={(e) => document.getElementById('CartDrawer').classList.toggle('open')} />
+        <ButtonCount src={icon} count={cartProducts?.length} name="Carrinho" onClick={toggleCartDrawer('1')} />
 
         <div id="CartDrawer" ref={dialogRef}>
-          <div className="cart-drawer__header transition-all flex justify-between align-middle duration-250 ease-in-out">
-            <div className="py-4">
-              <h3>Seu Carrinho</h3>
-            </div>
-            <button ref={closeButtonRef} className="p-4" onClick={(e) => document.getElementById('CartDrawer').classList.toggle('open')}>
+          <div className="py-8 cart-drawer__header items-center transition-all flex justify-between align-middle duration-250 ease-in-out border-b-2 border-[#e5e5e5]">
+            <h3 className="text-base font-semibold">Seu Carrinho</h3>
+            <button ref={closeButtonRef} className="p-4" onClick={toggleCartDrawer('0')}>
               <svg part="hdt-close-icon" role="presentation" fill="none" focusable="false" width="16" height="14" viewBox="0 0 16 14">
                 <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none"></path>
               </svg>

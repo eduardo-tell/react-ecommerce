@@ -15,29 +15,30 @@ export const ButtonCart = styled.button`
     z-index: 10;
     transform: translateX(160px);
 
+    &:hover {
+        > img.add-hover {
+            display: block !important;  
+        }
+        
+        > img.add,
+        > img.active-hover {
+            display: none !important;  
+        }
+    }
+
     &.active {
         background-color: white;
         transform: translateX(0);
 
-        img.hover-active {
-            display: block;
-        }
-
-        img.default {
-            display: none;    
-        }
-
         &:hover {
-            img.remove-hover {
-                display: block !important;
-            }
-
-            img.default {
-                display: none !important;    
-            }
-
-            img.hover-active {
+            img.add,
+            img.active,
+            img.add-hover {
                 display: none !important;  
+            }
+            
+            img.active-hover {
+                display: block !important;  
             }
         }
     }
@@ -91,6 +92,16 @@ export const ContentBody = styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                &:hover {
+                    img {
+                        display: none;
+                    }
+
+                    img.trash-hover {
+                        display: block;
+                    }
+                }
             }
         }
     }

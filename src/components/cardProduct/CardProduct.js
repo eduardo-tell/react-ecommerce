@@ -38,11 +38,12 @@ export default function CardProduct({props}) {
                     <p className="card-product__value">R${ props.price }</p>
                     {props.className === "card-product-inside" ?
                         <ButtonCart 
-                            className={`ease-linear duration-200 flex-auto p-2 bg-white hover:!bg-[#c83a3a] w-[36px] h-[36px] ${productcart ? "active" : ""}`} 
+                            className={`ease-linear duration-200 flex-auto p-2 bg-white hover:!bg-[#c83a3a] w-[36px] h-[36px] rounded-md ${productcart ? "active" : ""}`} 
                             onClick={cartHandler}
                             aria-label="Adicionar ao carrinho"
                         > 
-                            <img src="/trash.svg" alt="Remover do carrinho" /> 
+                            <img src="/trash.svg" className="" alt="Remover do carrinho" /> 
+                            <img src="/trash-white.svg" className="trash-hover hidden" alt="Remover do carrinho" />
                         </ButtonCart>
                     : null }
                 </div>
@@ -51,17 +52,19 @@ export default function CardProduct({props}) {
                 {showActions && (
                     <div className="absolute justify-end top-0 right-0 flex flex-col gap-2 p-2 card-product__actions">
                         <ButtonCart 
-                            className={`ease-linear duration-200 flex-auto p-2 bg-white w-[30px] h-[30px] ${productcart ? "active" : ""}`} 
+                            className={`ease-linear duration-200 flex-auto p-2 bg-white w-[30px] h-[30px] rounded-md ${productcart ? "active" : ""}`} 
                             onClick={cartHandler}
                             aria-label="Adicionar ao carrinho"
                         > 
-                            <img src="/cart-add-icon.svg" className="default" alt="Carrinho" /> 
-                            <img src="/cart-add-icon-hover.svg" className="hover-active hidden" alt="Carrinho" /> 
-                            <img src="/cart-remove-icon.svg" className="remove-hover hidden" alt="Carrinho" /> 
+                            <img src="/cart-add-icon.svg" className={`add ${productcart ? 'hidden' : ''}`} alt="Carrinho" /> 
+                            <img src="/cart-add-icon-hover.svg" className={`add-hover hidden`} alt="Carrinho" /> 
+                            
+                            <img src="/cart-active-icon.svg" className={`active ${productcart ? '' : 'hidden'}`} alt="Carrinho" /> 
+                            <img src="/cart-remove-icon-hover.svg" className="active-hover hidden" alt="Carrinho" />
                         </ButtonCart>
 
                         <ButtonFavorite 
-                            className={`ease-linear duration-200 delay-100 flex-auto p-2 bg-white w-[30px] h-[30px] ${productfavorite ? "active" : ""}`} 
+                            className={`ease-linear duration-200 delay-100 flex-auto p-2 bg-white w-[30px] h-[30px] rounded-md ${productfavorite ? "active" : ""}`} 
                             onClick={favoriteHandler}
                             aria-label="Adicionar aos favoritos"
                         > 

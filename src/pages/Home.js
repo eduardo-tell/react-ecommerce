@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../features/products/products';
 import { useFetch } from '../hooks/useFetch';
 import HeroBanner from '../components/heroBanner/HeroBanner';
+import './styles.scss';
 
 export default function Home() {
   const dispatch = useDispatch();
