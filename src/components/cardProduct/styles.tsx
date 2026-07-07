@@ -2,7 +2,17 @@ import styled from 'styled-components'
 
 export const ButtonFavorite = styled.button`
     z-index: 10;
-    transform: translateX(160px);
+    width: 2.5rem;
+    height: 2.5rem;
+
+    img {
+        width: calc(inherit - 0.8rem);
+    }
+
+    @media (min-width: 1024px) {
+        transform: translateX(160px);
+        margin: 0 auto;
+    }
 
     &.active {
         background-color: white;
@@ -13,7 +23,17 @@ export const ButtonFavorite = styled.button`
 
 export const ButtonCart = styled.button`
     z-index: 10;
-    transform: translateX(160px);
+    width: 2.5rem;
+    height: 2.5rem;
+
+    img {
+        width: calc(inherit - 0.8rem);
+        margin: 0 auto;
+    }
+    
+    @media (min-width: 1024px) {
+        transform: translateX(160px);    
+    }
 
     &:hover {
         > img.add-hover {
@@ -45,7 +65,7 @@ export const ButtonCart = styled.button`
 `;
 
 export const ContentBody = styled.div`
-    aspect-ratio: 1/1.3;
+    aspect-ratio: 1/1.2;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -89,6 +109,14 @@ export const ContentBody = styled.div`
             text-align: start;
 
             button {
+                width: 2.5rem;
+                height: 2.5rem;
+
+                > img {
+                    height: 1.5rem;
+                    margin: 0 auto;
+                }
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -111,6 +139,8 @@ export const CardProductImage = styled.div`
     overflow: hidden;
     position: relative;
     aspect-ratio: 1 / 1;
+    border-radius: 0.5rem;
+    overflow: hidden;
 
     picture {
         top: 0;

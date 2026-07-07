@@ -27,7 +27,7 @@ export default function Home() {
         <div className="main-content">
           <div className="container m-auto">
             <h2 className="w-full text-center mb-5 mt-7 text-4xl font-bold">Produtos</h2>
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7">
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-4 lg:px-0 gap-7">
               {filteredProducts?.map(product => {
                 return (
                   <CardProduct key={product.id} props={product} />
