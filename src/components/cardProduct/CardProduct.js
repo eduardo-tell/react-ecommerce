@@ -1,79 +1,84 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { toggleCartProduct } from '../../features/cart/cart.js';
-import { ButtonFavorite, ButtonCart, ContentBody, CardProductImage, CardProductContent } from './styles.tsx';
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { toggleCartProduct } from "../../features/cart/cart.js";
+import { selectIsProductInCart } from "../../features/cart/selectors.js";
+import { toggleFavorite } from "../../features/favorites/favorites.js";
+import { selectIsProductFavorite } from "../../features/favorites/selectors.js";
+import { ButtonFavorite, ButtonCart, ContentBody, CardProductImage, CardProductContent } from "./styles.tsx";
 
-export default function CardProduct({props}) {
+export default function CardProduct({ props }) {
     const dispatch = useDispatch();
-    const productcart = useSelector((state) => {
-        const cartProducts = state.cartProducts;
-        const matchingProduct = cartProducts.find((product) => product.id === props.id);
-        const isProductInCart = Boolean(matchingProduct);
-        return isProductInCart;
-    });
-    const [productfavorite, setProductfavorite] = React.useState(false);
+    const isInCart = useSelector(state => selectIsProductInCart(state, props.id));
+    const isFavorite = useSelector(state => selectIsProductFavorite(state, props.id));
+
+    const isInsideCart = props.className === "card-product-inside";
 
     const cartHandler = () => {
         dispatch(toggleCartProduct(props));
     }
 
     const favoriteHandler = () => {
-        setProductfavorite(!productfavorite);
+        dispatch(toggleFavorite(props));
     }
 
-    const showActions = props.className !== "card-product-inside";
-
     return (
-        <ContentBody className={props.className}>
+        <ContentBody as="article" className={props.className}>
             <CardProductImage>
-                <picture>
-                    <img src={props.thumbnail} alt="Imagem do produto" />
-                </picture>
+                <Link to={`/produto/${props.id}`} aria-label={`Ver detalhes de ${props.title}`}>
+                    <picture>
+                        <img src={props.thumbnail} alt={props.title} />
+                    </picture>
+                </Link>
             </CardProductImage>
             <CardProductContent className="card-product__content w-full text-center">
-                <h4>{ props.title }</h4>
+                <h4>
+                    <Link to={`/produto/${props.id}`} className="hover:underline focus-visible:underline">
+                        {props.title}
+                    </Link>
+                </h4>
 
-                <div className={props.className === 'card-product-inside' ? 'flex w-full justify-between' : null }>
-                    <p className="card-product__value">R${ props.price }</p>
-                    {props.className === "card-product-inside" ?
-                        <ButtonCart 
-                            className={`ease-linear duration-200 flex-auto p-2 bg-white hover:!bg-[#c83a3a] rounded-md ${productcart ? "active" : ""}`} 
+                <div className={isInsideCart ? "flex w-full justify-between items-center" : null}>
+                    <p className="card-product__value">
+                        R${isInsideCart ? (props.price * props.quantity).toFixed(2) : props.price}
+                    </p>
+                    {isInsideCart &&
+                        <ButtonCart
+                            className="ease-linear duration-200 flex-auto p-2 bg-white hover:!bg-[#c83a3a] rounded-md active"
                             onClick={cartHandler}
-                            aria-label="Adicionar ao carrinho"
-                        > 
-                            <img src="/trash.svg" width="40" height="40" alt="Remover do carrinho" /> 
-                            <img src="/trash-white.svg" className="trash-hover hidden" width="40" height="40" alt="Remover do carrinho" />
+                            aria-label={`Remover ${props.title} do carrinho`}
+                        >
+                            <img src="/trash.svg" width="40" height="40" alt="" />
+                            <img src="/trash-white.svg" className="trash-hover hidden" width="40" height="40" alt="" />
                         </ButtonCart>
-                    : null }
+                    }
                 </div>
             </CardProductContent>
-            <div className="absolute justify-end top-0 right-0 flex flex-col gap-2 p-2 card-product__actions">
-                {showActions && (
-                    <div className="absolute justify-end top-0 right-0 flex flex-col gap-2 p-2 card-product__actions">
-                        <ButtonCart 
-                            className={`ease-linear duration-200 flex-auto p-2 bg-white rounded-md ${productcart ? "active" : ""}`} 
-                            onClick={cartHandler}
-                            aria-label="Adicionar ao carrinho"
-                        > 
-                            <img src="/cart-add-icon.svg" className={`add ${productcart ? 'hidden' : ''}`} alt="Carrinho" /> 
-                            <img src="/cart-add-icon-hover.svg" className={`add-hover hidden`} alt="Carrinho" /> 
-                            
-                            <img src="/cart-active-icon.svg" className={`active ${productcart ? '' : 'hidden'}`} alt="Carrinho" /> 
-                            <img src="/cart-remove-icon-hover.svg" className="active-hover hidden" alt="Carrinho" />
-                        </ButtonCart>
 
-                        <ButtonFavorite 
-                            className={`ease-linear duration-200 delay-100 flex-auto p-2 bg-white rounded-md ${productfavorite ? "active" : ""}`} 
-                            onClick={favoriteHandler}
-                            aria-label="Adicionar aos favoritos"
-                        > 
-                            <img src="/star.svg" alt="Favorito" /> 
-                        </ButtonFavorite>
-                    </div>
-                )}
-                
-            </div>
+            {!isInsideCart && (
+                <div className="absolute justify-end top-0 right-0 flex flex-col gap-2 p-2 card-product__actions">
+                    <ButtonCart
+                        className={`ease-linear duration-200 flex-auto p-2 bg-white rounded-md ${isInCart ? "active" : ""}`}
+                        onClick={cartHandler}
+                        aria-pressed={isInCart}
+                        aria-label={isInCart ? `Remover ${props.title} do carrinho` : `Adicionar ${props.title} ao carrinho`}
+                    >
+                        <img src="/cart-add-icon.svg" className={`add ${isInCart ? "hidden" : ""}`} alt="" />
+                        <img src="/cart-add-icon-hover.svg" className="add-hover hidden" alt="" />
+
+                        <img src="/cart-active-icon.svg" className={`active ${isInCart ? "" : "hidden"}`} alt="" />
+                        <img src="/cart-remove-icon-hover.svg" className="active-hover hidden" alt="" />
+                    </ButtonCart>
+
+                    <ButtonFavorite
+                        className={`ease-linear duration-200 delay-100 flex-auto p-2 bg-white rounded-md ${isFavorite ? "active" : ""}`}
+                        onClick={favoriteHandler}
+                        aria-pressed={isFavorite}
+                        aria-label={isFavorite ? `Remover ${props.title} dos favoritos` : `Adicionar ${props.title} aos favoritos`}
+                    >
+                        <img src="/star.svg" alt="" />
+                    </ButtonFavorite>
+                </div>
+            )}
         </ContentBody>
     )
 }

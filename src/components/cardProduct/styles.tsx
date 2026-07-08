@@ -5,6 +5,11 @@ export const ButtonFavorite = styled.button`
     width: 2.5rem;
     height: 2.5rem;
 
+    &:focus-visible {
+        outline: 3px solid #2563eb;
+        outline-offset: 2px;
+    }
+
     img {
         width: calc(inherit - 0.8rem);
     }
@@ -25,6 +30,11 @@ export const ButtonCart = styled.button`
     z-index: 10;
     width: 2.5rem;
     height: 2.5rem;
+
+    &:focus-visible {
+        outline: 3px solid #2563eb;
+        outline-offset: 2px;
+    }
 
     img {
         width: calc(inherit - 0.8rem);
@@ -141,6 +151,17 @@ export const CardProductImage = styled.div`
     aspect-ratio: 1 / 1;
     border-radius: 0.5rem;
     overflow: hidden;
+
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    a:focus-visible {
+        outline: 3px solid #2563eb;
+        outline-offset: -3px;
+    }
 
     picture {
         top: 0;

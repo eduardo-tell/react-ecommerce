@@ -1,4 +1,6 @@
-#CartDrawer {
+import styled from 'styled-components';
+
+export const CartDrawer = styled.div`
     position: fixed;
 
     --color-background: white;
@@ -35,6 +37,13 @@
             height: calc(100% - 78px);
             top: 78px;
             padding: 1rem;
+            overflow-y: auto;
+        }
+
+        &__footer {
+            position: sticky;
+            bottom: 0;
+            background: var(--color-background);
         }
     }
 
@@ -65,4 +74,4 @@
             display: block;
         }
     }
-}
+}`;

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
 import productsReducer from "./features/products/products"
-// import favoritesReducer from "./features/favorites/favorites"
+import favoritesReducer from "./features/favorites/favorites"
 import cartProductsReducer from "./features/cart/cart"
 
 const localStorageMiddleware = store => next => action => {
@@ -14,8 +14,8 @@ const persistedState = localStorage.getItem('myReduxState') ? JSON.parse(localSt
 const store = configureStore({
   reducer: {
     products: productsReducer,
-    cartProducts: cartProductsReducer
-    // favorites: favoritesReducer
+    cartProducts: cartProductsReducer,
+    favorites: favoritesReducer
   },  
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(localStorageMiddleware),
   preloadedState: persistedState,

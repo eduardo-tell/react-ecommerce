@@ -4,7 +4,8 @@ import Header from "./components/header/Header";
 export default function Layout() {
     return (
       <>
-        <Header />  
+        <a href="#main-content" className="skip-link">Pular para o conteúdo</a>
+        <Header />
         <Outlet />
       </>
     )
