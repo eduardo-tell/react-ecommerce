@@ -5,7 +5,7 @@ import Search from "../search/Search";
 import './styles.scss';
 
 export default function Header() {
-    const [menuOpen, setMenuOpen] = React.useState(false);
+    const [menuOpen] = React.useState(false);
 
     return (
         <>
