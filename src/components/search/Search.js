@@ -83,7 +83,7 @@ export default function Search({ icon }) {
 
   return (
     <MainSearch className="search">
-      {!isOpen && <ButtonCount src={icon} name="Pesquisar" onClick={openSearch} />}
+      <ButtonCount src={icon} name="Pesquisar" onClick={openSearch} />
 
       {isOpen && (
         <fieldset className="search__panel">
@@ -102,8 +102,7 @@ export default function Search({ icon }) {
             value={query}
             onChange={event => { setQuery(event.target.value); setActiveIndex(-1) }}
             onKeyDown={handleKeyDown}
-            onBlur={() => setTimeout(closeSearch, 150)}
-            className="border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-blue-600 block w-full rounded sm:text-xl focus:ring-1"
+            className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-[#29A29D] focus:-outline-offset-0 outline-transparent border placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
           />
 
           {results.length > 0 && (

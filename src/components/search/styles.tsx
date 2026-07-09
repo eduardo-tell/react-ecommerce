@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
+export const ButtonCount = styled.button`
+
+`;
+
 export const MainSearch = styled.div`
     position: relative;
 
-    &__panel {
+    .search__panel {
+        right: 0;
+        top: 0;
+        position: absolute;
         display: flex;
         align-items: center;
         width: 14rem;
@@ -18,7 +25,7 @@ export const MainSearch = styled.div`
         }
     }
 
-    &__results {
+    .search__results {
         position: absolute;
         top: calc(100% + 0.25rem);
         left: 0;
