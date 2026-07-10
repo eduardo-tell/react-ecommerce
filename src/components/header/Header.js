@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "../cart/Cart";
 import Search from "../search/Search";
@@ -12,7 +11,9 @@ export default function Header() {
             </div>
             <div className="container m-auto">
                 <nav className={`flex flex-nowrap justify-between items-center`} aria-label="Navegação principal">
-                    <h1 className="text-4xl font-bold leading-8 lg:block hidden"> E-commerce </h1>
+                    <Link to="/">
+                        <h1 className="text-4xl font-bold leading-8 lg:block hidden transition-all hover:text-[#29A29D]"> E-commerce </h1>
+                    </Link>
 
                     <div className="flex p-2 items-center gap-2">
                         <Search icon="/search.svg" />
