@@ -62,11 +62,11 @@ export default function CardProduct({ props }) {
                         aria-pressed={isInCart}
                         aria-label={isInCart ? `Remover ${props.title} do carrinho` : `Adicionar ${props.title} ao carrinho`}
                     >
-                        <img src="/cart-add-icon.svg" className={`add ${isInCart ? "hidden" : ""}`} alt="" />
-                        <img src="/cart-add-icon-hover.svg" className="add-hover hidden" alt="" />
+                        <img src="/cart-add-icon.svg" width="20" height="20" className={`add ${isInCart ? "hidden" : ""}`} alt="Adicionar ao carrinho" />
+                        <img src="/cart-add-icon-hover.svg" width="20" height="20" className="add-hover hidden" alt="Adicionar ao carrinho (hover)" />
 
-                        <img src="/cart-active-icon.svg" className={`active ${isInCart ? "" : "hidden"}`} alt="" />
-                        <img src="/cart-remove-icon-hover.svg" className="active-hover hidden" alt="" />
+                        <img src="/cart-active-icon.svg" width="20" height="20" className={`active ${isInCart ? "" : "hidden"}`} alt="Item no carrinho" />
+                        <img src="/cart-remove-icon-hover.svg" width="20" height="20" className="active-hover hidden" alt="Remover do carrinho (hover)" />
                     </ButtonCart>
 
                     <ButtonFavorite
@@ -75,7 +75,10 @@ export default function CardProduct({ props }) {
                         aria-pressed={isFavorite}
                         aria-label={isFavorite ? `Remover ${props.title} dos favoritos` : `Adicionar ${props.title} aos favoritos`}
                     >
-                        <img src="/star.svg" alt="" />
+                        <img src="/star.svg" className={`default ${isFavorite ? "hidden" : ""}`} width="20" height="20" alt="Favoritar" />
+                        <img src="/star-hover.svg" className={`hover hidden ${isFavorite ? "hidden" : ""}`} width="20" height="20" alt="Favoritar" />
+                        <img src="/star-active.svg" className={`active ${isFavorite ? "" : "hidden"}`} width="20" height="20" alt="Favorito" />
+                        <img src="/star-remove-hover.svg" className="active-hover hidden" width="20" height="20" alt="Favorito" />
                     </ButtonFavorite>
                 </div>
             )}

@@ -76,7 +76,7 @@ export default function Cart({ icon }) {
                 <Link
                   to="/checkout"
                   onClick={() => toggleCartDrawer('0')}
-                  className="mt-4 block text-center bg-black text-white rounded-md py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  className="mt-4 block text-center transition-all bg-[#A3F7BF] text-b rounded-md py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[#29A29D] hover:text-white focus-visible:outline-blue-600"
                 >
                   Finalizar compra
                 </Link>

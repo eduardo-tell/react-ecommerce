@@ -102,7 +102,7 @@ export default function Search({ icon }) {
             value={query}
             onChange={event => { setQuery(event.target.value); setActiveIndex(-1) }}
             onKeyDown={handleKeyDown}
-            className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-[#29A29D] focus:-outline-offset-0 outline-transparent border placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
+            className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-[#29A29D] focus:outline-2 focus:outline-offset-2 focus:outline-[#29A29D] border-2 placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
           />
 
           {results.length > 0 && (

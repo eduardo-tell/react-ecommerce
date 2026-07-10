@@ -12,6 +12,7 @@ export const ButtonFavorite = styled.button`
 
     img {
         width: calc(inherit - 0.8rem);
+        margin: 0 auto;
     }
 
     @media (min-width: 1024px) {
@@ -19,10 +20,38 @@ export const ButtonFavorite = styled.button`
         margin: 0 auto;
     }
 
+    &:not(.active):hover {
+        > img.default,
+         > img.active,
+         > img.active-hover {
+            display: none;
+        }
+
+        > img.hover {
+            display: block;
+        }
+    }
+
     &.active {
         background-color: white;
         transform: translateX(0);
         opacity: 1;
+
+        // > img.active,
+        > img.active-hover,
+        > img.default {
+            display: none;
+        }
+
+        &:hover {
+            > img.active {
+                display: none;
+            }
+
+            > img.active-hover {
+                display: block;
+            }
+        } 
     }
 `;
 
