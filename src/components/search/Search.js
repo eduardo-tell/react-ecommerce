@@ -107,7 +107,7 @@ export default function Search({ icon }) {
             value={query}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-[#29A29D] focus:outline-none border-2 placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
+            className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base focus:outline-none border-2 placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
           />
 
           {query.trim().length > 3 ? (
@@ -123,8 +123,16 @@ export default function Search({ icon }) {
                       className={index === activeIndex ? 'active' : ''}
                       onClick={() => goToProduct(product.id)}
                     >
-                      <img src={product.thumbnail} alt="" width="32" height="32" />
-                      <span>{product.title}</span>
+                      <picture>
+                        <img src={product.thumbnail} alt="Produto" width="32" height="32" />
+                      </picture>
+                      <div>
+                        <div>
+                          <span><b>{product.title}</b></span>
+                          <span> {product.description} </span>
+                        </div>
+                        <span><b>R$ {product.price.toFixed(2)}</b></span>
+                      </div>
                     </li>
                   ))}
                 </ul>

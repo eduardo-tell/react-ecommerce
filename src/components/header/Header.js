@@ -6,8 +6,8 @@ import Favorites from "../favorites/Favorites";
 export default function Header() {
     return (
         <header>
-            <div className="bg-[#A3F7BF] flex items-center justify-center p-2">
-                <span className="text-[#000] text-xs">Lorem ipsum siamet</span>
+            <div className="bg-secundary flex items-center justify-center p-2">
+                <span className="color-secundary text-xs">Lorem ipsum siamet</span>
             </div>
             <div className="container m-auto">
                 <nav className={`flex flex-nowrap justify-between items-center`} aria-label="Navegação principal">

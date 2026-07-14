@@ -5,7 +5,7 @@ export default function ButtonCount(props) {
     return (
       <Button 
         type="button"
-        className='p-2 border-transparent border-b-2 hover:border-gray-400 transition-all duration-250 ease-in-out'
+        className='p-2 border-transparent border-b-2 hover:border-b-2 hover:border-primary transition-all duration-250 ease-in-out'
         onClick={props.onClick}
       > 
         <img src={props.src} alt={props.name} width="20" height="20" /> 

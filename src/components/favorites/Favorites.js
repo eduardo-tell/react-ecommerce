@@ -11,7 +11,7 @@ export default function Favorites({ icon, iconActive }) {
     <Button
       as={Link}
       to="/favoritos"
-      className="p-2 border-transparent border-b-2 hover:border-gray-400 transition-all duration-250 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+      className="p-2 border-transparent border-b-2 hover:border-primary transition-all duration-250 ease-in-out focus-visible:outline focus-visible:outline-2"
       aria-label={`Favoritos${favoritesCount > 0 ? `, ${favoritesCount} produtos` : ""}`}
     >
       {location.pathname.includes("/favoritos") ? <img src={iconActive} alt="" width="20" height="20" /> : <img src={icon} alt="" width="20" height="20" />}
