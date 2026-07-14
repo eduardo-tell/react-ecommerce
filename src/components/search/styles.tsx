@@ -42,8 +42,12 @@ export const MainSearch = styled.div`
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem;
             cursor: pointer;
+
+            img {
+                width: 60px;
+                height: 60px;
+            }
 
             &.active,
             &:hover {

@@ -53,6 +53,11 @@ export default function Search({ icon }) {
     closeSearch()
   }
 
+  function handleInputChange(event) {
+    setQuery(event.target.value)
+    setActiveIndex(-1)
+  }
+
   function handleKeyDown(event) {
     if (event.key === 'Escape') {
       closeSearch()
@@ -100,28 +105,36 @@ export default function Search({ icon }) {
             name="busca"
             placeholder="Buscar..."
             value={query}
-            onChange={event => { setQuery(event.target.value); setActiveIndex(-1) }}
+            onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-[#29A29D] focus:outline-2 focus:outline-offset-2 focus:outline-[#29A29D] border-2 placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
+            className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-[#29A29D] focus:outline-none border-2 placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
           />
 
-          {results.length > 0 && (
-            <ul id={listboxId} role="listbox" className="search__results">
-              {results.map((product, index) => (
-                <li
-                  key={product.id}
-                  id={`search-option-${index}`}
-                  role="option"
-                  aria-selected={index === activeIndex}
-                  className={index === activeIndex ? 'active' : ''}
-                  onClick={() => goToProduct(product.id)}
-                >
-                  <img src={product.thumbnail} alt="" width="32" height="32" />
-                  <span>{product.title}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+          {query.trim().length > 3 ? (
+            <div className="search__results p-1">
+              {results.length > 0 && results.length < 4 ? (
+                <ul id={listboxId} role="listbox">
+                  {results.map((product, index) => (
+                    <li
+                      key={product.id}
+                      id={`search-option-${index}`}
+                      role="option"
+                      aria-selected={index === activeIndex}
+                      className={index === activeIndex ? 'active' : ''}
+                      onClick={() => goToProduct(product.id)}
+                    >
+                      <img src={product.thumbnail} alt="" width="32" height="32" />
+                      <span>{product.title}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : results.length === 0 ? (
+                <div className="search__no-results">
+                  <span>Nenhum resultado encontrado</span>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
         </fieldset>
       )}
     </MainSearch>

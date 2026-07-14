@@ -4,21 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../features/products/products';
 import { useFetch } from '../hooks/useFetch';
 import HeroBanner from '../components/heroBanner/HeroBanner';
-import { gerenciadorDeProdutos } from '../storage';
+// import { gerenciadorDeProdutos } from '../storage';
 import './styles.scss';
 
 export default function Home() {
   const dispatch = useDispatch();
-  // const products = useSelector(state => state.products);
-  const { products, isLoading, error } = useState('');
-  // const { data: productsStart } = useFetch('https://dummyjson.com/products?limit=8');
+  const products = useSelector(state => state.products);
+  // const { products, isLoading, error } = useState('');
+  const { data: productsStart } = useFetch('https://dummyjson.com/products?limit=12');
 
   useEffect(() => {
-    if (products) {
-      // dispatch(addProduct(products));
-      dispatch(gerenciadorDeProdutos());
+    if (productsStart) {
+      dispatch(addProduct(productsStart));
+      // dispatch(gerenciadorDeProdutos());
     }
-  }, [products, dispatch]);
+  }, [productsStart, dispatch]);
 
   return (
     <main id="main-content">
