@@ -13,7 +13,6 @@ export const MainSearch = styled.div`
         position: absolute;
         display: flex;
         align-items: center;
-        width: 14rem;
 
         @media (max-width: 640px) {
             position: fixed;
@@ -38,21 +37,8 @@ export const MainSearch = styled.div`
         box-shadow: 0 10px 20px rgb(0 0 0 / 0.1);
         z-index: 60;
 
-        li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-
-            img {
-                width: 60px;
-                height: 60px;
-            }
-
-            &.active,
-            &:hover {
-                background: #f1f5f9;
-            }
+        li:last-child {
+            border-bottom: none;
         }
     }
 }`
