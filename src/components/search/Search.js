@@ -109,37 +109,39 @@ export default function Search({ icon }) {
           className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base focus:outline-none border-2 placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
         />
 
-        {query.trim().length >= 3 ? (
-          <div className="search__results p-1">
-            {results.length > 0 && results.length <= 3 ? (
-              <ul id={listboxId} className="mx-3" role="listbox">
-                {results.map((product, index) => (
-                  <li
-                    key={product.id}
-                    id={`search-option-${index}`}
-                    role="option"
-                    aria-selected={index === activeIndex}
-                    className="flex gap-1 py-3 border-b-2 border-primary hover:bg-slate-100"
-                    onClick={() => goToProduct(product.id)}
-                  >
-                    <picture className="flex-shrink-0 size-14 bg-[#D9D9D9]">
-                      <img src={product.thumbnail} alt="Produto" className="size-14" width="32" height="32" />
-                    </picture>
-                    <div className="w-full1">
-                      <div className="flex flex-col gap-1">
-                        <span className="text-sm font-bold text-ellipsis w-[213px] leading-none truncate">{product.title}</span>
-                        <span className="text-xs text-gray-500 text-ellipsis w-[213px] leading-none truncate"> {product.description} </span>
+        {query.trim().length >= 2 ? (
+          <div className="search__results">
+            <div className="overflow-auto m-4">
+              {results.length > 0 ? (
+                <ul className="h-full w-full" role="listbox">
+                  {results.map((product, index) => (
+                    <li
+                      key={product.id}
+                      id={`search-option-${index}`}
+                      role="option"
+                      aria-selected={index === activeIndex}
+                      className="group flex gap-1 py-3 border-b-2 cursor-pointer border-primary"
+                      onClick={() => goToProduct(product.id)}
+                    >
+                      <picture className="flex-shrink-0 size-14 bg-[#D9D9D9]">
+                        <img src={product.thumbnail} alt="Produto" className="size-14" width="32" height="32" />
+                      </picture>
+                      <div className="w-full1">
+                        <div className="flex flex-col gap-1">
+                          <span className="text-sm font-bold text-ellipsis w-[213px] leading-5 truncate group-hover:underline underline-offset-1 group-hover:text-primary">{product.title}</span>
+                          <span className="text-xs text-gray-500 text-ellipsis w-[213px] leading-none truncate"> {product.description} </span>
+                        </div>
+                        <span className="text-sm leading-none text-primary"><b>R$ {product.price.toFixed(2)}</b></span>
                       </div>
-                      <span className="text-sm leading-none text-primary"><b>R$ {product.price.toFixed(2)}</b></span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            ) : results.length === 0 ? (
-              <div className="search__no-results">
-                <span>Nenhum resultado encontrado</span>
-              </div>
-            ) : null}
+                    </li>
+                  ))}
+                </ul>
+              ) : results.length === 0 ? (
+                <div className="search__no-results">
+                  <span>Nenhum resultado encontrado</span>
+                </div>
+              ) : null}
+            </div>
           </div>
         ) : null}
       </fieldset>
