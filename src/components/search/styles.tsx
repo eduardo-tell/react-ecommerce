@@ -7,23 +7,6 @@ export const ButtonCount = styled.button`
 export const MainSearch = styled.div`
     position: relative;
 
-    .search__panel {
-        right: 0;
-        top: 0;
-        position: absolute;
-        display: flex;
-        align-items: center;
-
-        @media (max-width: 640px) {
-            position: fixed;
-            inset: 0 0 auto 0;
-            width: 100%;
-            padding: 0.75rem;
-            background: white;
-            z-index: 50;
-        }
-    }
-
     .search__results {
         position: absolute;
         top: calc(100% + 0.25rem);
