@@ -88,7 +88,7 @@ export default function Search({ icon }) {
   }
 
   return (
-    <MainSearch className="search relative">
+    <MainSearch className="relative focus:border-[#29A29D] hover:border-[#29A29D] border-[#393E46] rounded-lg transition-all border-2">
       <fieldset className="w-[300px]">
         <label htmlFor="search-input" className="sr-only">Buscar produtos</label>
         <input
@@ -105,7 +105,7 @@ export default function Search({ icon }) {
           value={query}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base focus:outline-none border-2 placeholder:text-gray-500 border-[#29A29D] sm:text-sm/6"
+          className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base focus:outline-none placeholder:text-gray-500 pr-10 sm:text-sm/6"
         />
 
         {query.trim().length >= 2 ? (
@@ -143,11 +143,11 @@ export default function Search({ icon }) {
             </div>
           </div>
         ) : null}
-      </fieldset>
 
-      <Link to={`/resultados?search=${query}`} className="size-8 border-transparent border-b-2 hover:border-b-2 hover:border-primary transition-all duration-250 ease-in-out absolute right-0 top-0 bottom-0 flex items-center justify-center">
-        <img src={icon} alt="Pesquisar" width="20" height="20" className="search__icon" onClick={goToSearchResults} />
-      </Link>
+        <Link to={`/resultados?search=${query}`} className="size-9 hover:bg-primary focus:bg-primary transition-all duration-250 ease-in-out absolute right-0 top-0 bottom-0 flex items-center justify-center">
+          <img src={icon} alt="Pesquisar" width="20" height="20" className="search__icon" onClick={goToSearchResults} />
+        </Link>
+      </fieldset>
     </MainSearch>
   )
 }

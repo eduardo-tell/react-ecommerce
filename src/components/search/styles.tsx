@@ -7,6 +7,10 @@ export const ButtonCount = styled.button`
 export const MainSearch = styled.div`
     position: relative;
 
+    &:has(input:focus) {
+        border-color: #29A29D;
+    }
+
     .search__results {
         position: absolute;
         top: calc(100% + 0.25rem);

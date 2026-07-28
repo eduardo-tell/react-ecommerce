@@ -1,5 +1,7 @@
-.main-content {
+.card-effect {
+    opacity: 0;
     animation: slideInUp 1s ease-out 0.2s both;
+    animation-delay: var(--delay, 0s);
 }
 
 @keyframes slideInUp {
@@ -11,4 +13,8 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+body {
+    display: none !important;
 }
