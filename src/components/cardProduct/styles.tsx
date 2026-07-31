@@ -172,6 +172,10 @@ export const ContentBody = styled.div`
             }
         }
     }
+
+    & > button {
+
+    }
 `
 export const CardProductImage = styled.div`
     display: block;

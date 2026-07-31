@@ -22,13 +22,17 @@ export default function CardProduct({ props }) {
     }
 
     return (
-        <ContentBody as="article" className={props.className}>
+        <ContentBody as="article" className={`{props.className} group`}>
             <CardProductImage>
                 <Link to={`/produto/${props.id}`} aria-label={`Ver detalhes de ${props.title}`}>
                     <picture>
                         <img src={props.thumbnail} alt={props.title} />
                     </picture>
                 </Link>
+
+                <button className="bg-secundary hover:bg-primary text-black py-2 mx-3 mb-3 w-[calc(100%-1.5rem)] rounded-md absolute transition-all group-hover:bottom-0 -bottom-20 duration-200">
+                    Comprar agora
+                </button>
             </CardProductImage>
             <CardProductContent className="card-product__content w-full text-center">
                 <h4>
