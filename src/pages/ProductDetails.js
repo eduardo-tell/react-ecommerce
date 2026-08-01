@@ -92,7 +92,7 @@ export default function ProductDetails() {
             <div className="flex gap-3 mt-6">
               <button
                 type="button"
-                className={`flex-1 py-3 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${isInCart ? 'bg-[#c83a3a] text-white' : 'bg-black text-white'}`}
+                className={`flex-1 bg-secundary hover:bg-primary hover:text-white py-3 rounded-md transition-all duration-200 ${isInCart ? 'bg-[#c83a3a] text-white' : 'bg-black text-black'}`}
                 aria-pressed={isInCart}
                 onClick={() => dispatch(toggleCartProduct(product))}
               >

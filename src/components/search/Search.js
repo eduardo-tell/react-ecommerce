@@ -110,7 +110,7 @@ export default function Search({ icon }) {
 
         {query.trim().length >= 2 ? (
           <div className="search__results">
-            <div className="overflow-auto m-4">
+            <div className="overflow-y-auto m-4">
               {results.length > 0 ? (
                 <ul className="h-full w-full" role="listbox">
                   {results.map((product, index) => (
@@ -125,10 +125,10 @@ export default function Search({ icon }) {
                       <picture className="flex-shrink-0 size-14 bg-[#D9D9D9]">
                         <img src={product.thumbnail} alt="Produto" className="size-14" width="32" height="32" />
                       </picture>
-                      <div className="w-full1">
+                      <div className="w-full">
                         <div className="flex flex-col gap-1">
-                          <span className="text-sm font-bold text-ellipsis w-[213px] leading-5 truncate group-hover:underline underline-offset-1 group-hover:text-primary">{product.title}</span>
-                          <span className="text-xs text-gray-500 text-ellipsis w-[213px] leading-none truncate"> {product.description} </span>
+                          <span className="text-sm font-bold text-ellipsis w-[205px] leading-5 truncate group-hover:underline underline-offset-1 group-hover:text-primary">{product.title}</span>
+                          <span className="text-xs text-gray-500 text-ellipsis w-[205px] leading-none truncate"> {product.description} </span>
                         </div>
                         <span className="text-sm leading-none text-primary"><b>R$ {product.price.toFixed(2)}</b></span>
                       </div>

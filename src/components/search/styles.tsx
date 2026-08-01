@@ -28,8 +28,20 @@ export const MainSearch = styled.div`
             margin-top: 0.5rem;
             margin-left: 0.5rem;
             margin-right: 0.5rem;
-            overflow-y: auto;
             margin-bottom: 0.5rem;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1; /* Light gray background */
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #29a29d; /* Dark gray */
+                border-radius: 5px; /* Rounded corners */
+            }
         }
 
         li:last-child {
