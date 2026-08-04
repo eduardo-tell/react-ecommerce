@@ -10,9 +10,10 @@ export default function Header() {
                 <span className="color-secundary text-xs">Lorem ipsum siamet</span>
             </div>
             <div className="container m-auto py-7">
-                <nav className={`flex flex-nowrap justify-between items-center`} aria-label="Navegação principal">
+                <nav className={`flex flex-nowrap justify-between items-center gap-2 mx-4`} aria-label="Navegação principal">
                     <Link to="/">
                         <h1 className="text-4xl font-bold leading-8 lg:block hidden transition-all hover:text-[#29A29D]"> E-commerce </h1>
+                        <h1 className="text-4xl font-bold leading-8 lg:hidden transition-all hover:text-[#29A29D]"> E </h1>
                     </Link>
 
                     <div className="flex items-center gap-2">

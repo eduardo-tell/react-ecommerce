@@ -89,7 +89,7 @@ export default function Search({ icon }) {
 
   return (
     <MainSearch className="relative focus:border-[#29A29D] hover:border-[#29A29D] border-[#393E46] rounded-lg transition-all border-2">
-      <fieldset className="w-[300px]">
+      <fieldset className="lg:w-[300px]">
         <label htmlFor="search-input" className="sr-only">Buscar produtos</label>
         <input
           id="search-input"

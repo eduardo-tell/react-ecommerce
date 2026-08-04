@@ -7,6 +7,7 @@ import { selectIsProductInCart } from '../features/cart/selectors';
 import { toggleFavorite } from '../features/favorites/favorites';
 import { selectIsProductFavorite } from '../features/favorites/selectors';
 import './productDetails.scss';
+import { ButtonFavorite } from "../components/cardProduct/styles.tsx";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -89,24 +90,26 @@ export default function ProductDetails() {
               </ul>
             )}
 
-            <div className="flex gap-3 mt-6">
-              <button
-                type="button"
-                className={`flex-1 bg-secundary hover:bg-primary hover:text-white py-3 rounded-md transition-all duration-200 ${isInCart ? 'bg-[#c83a3a] text-white' : 'bg-black text-black'}`}
-                aria-pressed={isInCart}
-                onClick={() => dispatch(toggleCartProduct(product))}
-              >
-                {isInCart ? 'Remover do carrinho' : 'Adicionar ao carrinho'}
-              </button>
-              <button
-                type="button"
-                className={`py-3 px-4 rounded-md border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${isFavorite ? 'bg-yellow-100' : ''}`}
-                aria-pressed={isFavorite}
-                aria-label={isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
-                onClick={() => dispatch(toggleFavorite(product))}
-              >
-                ★
-              </button>
+            <div class="flex">
+                <button
+                  type="button"
+                  className={`w-[calc(100%-3.5rem)] bg-secundary hover:bg-primary hover:text-white py-3 rounded-md transition-all duration-200 ${isInCart ? 'bg-[#c83a3a] text-white' : 'bg-black text-black'}`}
+                  aria-pressed={isInCart}
+                  onClick={() => dispatch(toggleCartProduct(product))}
+                >
+                  {isInCart ? 'Remover do carrinho' : 'Adicionar ao carrinho'}
+                </button>
+                <ButtonFavorite
+                    className={`ease-linear duration-200 delay-100 flex-auto p-2 bg-white rounded-md ${isFavorite ? "active" : ""}`}
+                    aria-pressed={isFavorite}
+                    onClick={() => dispatch(toggleFavorite(product))}
+                    aria-label={isFavorite ? `Remover dos favoritos` : `Adicionar aos favoritos`}
+                >
+                    <img src="/star.svg" className={`default ${isFavorite ? "hidden" : ""}`} width="20" height="20" alt="Favoritar" />
+                    <img src="/star-hover.svg" className={`hover hidden ${isFavorite ? "hidden" : ""}`} width="20" height="20" alt="Favoritar" />
+                    <img src="/star-active.svg" className={`active ${isFavorite ? "" : "hidden"}`} width="20" height="20" alt="Favorito" />
+                    <img src="/star-remove-hover.svg" className="active-hover hidden" width="20" height="20" alt="Favorito" />
+                </ButtonFavorite>
             </div>
           </section>
         </div>
