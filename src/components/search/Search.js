@@ -144,7 +144,7 @@ export default function Search({ icon }) {
           </div>
         ) : null}
 
-        <Link to={`/resultados?search=${query}`} className="size-9 hover:bg-primary focus:bg-primary transition-all duration-250 ease-in-out absolute right-0 top-0 bottom-0 flex items-center justify-center">
+        <Link to={`/busca?search=${query}`} className="size-9 hover:bg-primary focus:bg-primary transition-all duration-250 ease-in-out absolute right-0 top-0 bottom-0 flex items-center justify-center">
           <img src={icon} alt="Pesquisar" width="20" height="20" className="search__icon" onClick={goToSearchResults} />
         </Link>
       </fieldset>
