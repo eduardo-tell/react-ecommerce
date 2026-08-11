@@ -1,13 +1,13 @@
-import { MouseEventHandleruseEffect, useState } from 'react';
+import { MouseEventHandleruseEffect, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import CardProduct from '../components/cardProduct/CardProduct';
-import Select, {
-  components,
-  ControlProps,
-  Props,
-  StylesConfig,
-} from 'react-select';
+// import Select, {
+//   components,
+//   ControlProps,
+//   Props,
+//   StylesConfig,
+// } from 'react-select';
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams();

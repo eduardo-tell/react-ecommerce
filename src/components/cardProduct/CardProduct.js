@@ -22,7 +22,7 @@ export default function CardProduct({ props }) {
     }
 
     return (
-        <ContentBody as="article" className={`{props.className} group`}>
+        <ContentBody as="article" className={props.className + ` group`}>
             <CardProductImage>
                 <Link to={`/produto/${props.id}`} aria-label={`Ver detalhes de ${props.title}`}>
                     <picture>
@@ -30,9 +30,11 @@ export default function CardProduct({ props }) {
                     </picture>
                 </Link>
 
-                <button className="bg-secundary hover:bg-primary text-black py-2 mx-3 mb-3 w-[calc(100%-1.5rem)] rounded-md absolute transition-all group-hover:bottom-0 -bottom-20 duration-200">
-                    Comprar agora
-                </button>
+                {isInsideCart ? null : (
+                    <button className="bg-secundary hover:bg-primary text-black py-2 mx-3 mb-3 w-[calc(100%-1.5rem)] rounded-md absolute transition-all group-hover:bottom-0 -bottom-20 duration-200">
+                        Comprar agora
+                    </button>
+                )}
             </CardProductImage>
             <CardProductContent className="card-product__content w-full text-center">
                 <h4>
@@ -42,7 +44,7 @@ export default function CardProduct({ props }) {
                 </h4>
 
                 <div className={isInsideCart ? "flex w-full justify-between items-center" : null}>
-                    <p className="card-product__value">
+                    <p className="card-product__value font-bold text-primary">
                         R${isInsideCart ? (props.price * props.quantity).toFixed(2) : props.price}
                     </p>
                     {isInsideCart &&
