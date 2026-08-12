@@ -38,10 +38,14 @@ export default function CardProduct({ props }) {
             </CardProductImage>
             <CardProductContent className="card-product__content w-full text-center">
                 <h4>
-                    <Link to={`/produto/${props.id}`} className="hover:underline focus-visible:underline">
+                    <Link to={`/produto/${props.id}`} className="font-bold hover:underline focus-visible:underline">
                         {props.title}
                     </Link>
                 </h4>
+
+                <span className="text-sm text-gray-600 line-clamp-[3]">
+                    {props.description}
+                </span>
 
                 <div className={isInsideCart ? "flex w-full justify-between items-center" : null}>
                     <p className="card-product__value font-bold text-primary">

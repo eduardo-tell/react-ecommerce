@@ -56,7 +56,7 @@ export default function Cart({ icon }) {
             </svg>
           </button>
         </div>
-        <div className="cart-drawer__inner flex flex-col justify-start align-top transition-all duration-250 ease-in-out">
+        <div className="cart-drawer__inner flex flex-col justify-between align-top transition-all duration-250 ease-in-out">
           {cartProducts?.length > 0 ? (
             <>
               <div className="flex flex-col gap-4 w-full">
