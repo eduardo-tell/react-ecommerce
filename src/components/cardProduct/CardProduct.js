@@ -11,7 +11,7 @@ export default function CardProduct({ props }) {
     const isInCart = useSelector(state => selectIsProductInCart(state, props.id));
     const isFavorite = useSelector(state => selectIsProductFavorite(state, props.id));
 
-    const isInsideCart = props.className === "card-product-inside";
+    const isInsideCart = props.className?.includes("card-product-inside");
 
     const cartHandler = () => {
         dispatch(toggleCartProduct(props));
@@ -38,14 +38,16 @@ export default function CardProduct({ props }) {
             </CardProductImage>
             <CardProductContent className="card-product__content w-full text-center">
                 <h4>
-                    <Link to={`/produto/${props.id}`} className="font-bold hover:underline focus-visible:underline">
+                    <Link to={`/produto/${props.id}`} className="font-bold hover:underline focus-visible:underline line-clamp-[2]">
                         {props.title}
                     </Link>
                 </h4>
 
-                <span className="text-sm text-gray-600 line-clamp-[3]">
-                    {props.description}
-                </span>
+                {isInsideCart ? (
+                        <span className="text-sm text-gray-600 line-clamp-[3]">
+                        {props.description}
+                    </span>
+                ) :  null}
 
                 <div className={isInsideCart ? "flex w-full justify-between items-center" : null}>
                     <p className="card-product__value font-bold text-primary">

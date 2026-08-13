@@ -147,6 +147,10 @@ export const ContentBody = styled.div`
             align-items: flex-start;
             text-align: start;
 
+            &:hover {
+
+            }
+
             button {
                 width: 2.5rem;
                 height: 2.5rem;
@@ -194,6 +198,10 @@ export const CardProductImage = styled.div`
     a:focus-visible {
         outline: 3px solid #2563eb;
         outline-offset: -3px;
+    }
+
+    &:hover + div a {
+        text-decoration: underline;
     }
 
     picture {
