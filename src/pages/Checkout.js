@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CardProduct from '../components/cardProduct/CardProduct';
 import { selectCartItems, selectCartTotal } from '../features/cart/selectors';
 
 export default function Checkout() {
@@ -45,12 +46,12 @@ export default function Checkout() {
         <section aria-label="Resumo do pedido">
           <h1 className="text-2xl font-bold mb-4">Resumo do pedido</h1>
           <ul className="flex flex-col gap-3">
-            {cartItems.map(item => (
-              <li key={item.id} className="flex justify-between border-b pb-2">
-                <span>{item.title} <span className="text-gray-500">x{item.quantity}</span></span>
-                <span>R${(item.price * item.quantity).toFixed(2)}</span>
-              </li>
-            ))}
+            {cartItems.map(product => {
+              product = { ...product, className: "card-product-inside" };
+              return (
+                <CardProduct key={product.id} props={product} />
+              )
+            })}
           </ul>
           <p className="flex justify-between font-bold text-lg mt-4">
             <span>Total</span>
@@ -102,7 +103,7 @@ export default function Checkout() {
 
             <button
               type="submit"
-              className="bg-black text-white rounded-md py-3 font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              className="bg-secundary hover:bg-primary text-black py-2 w-full rounded-md transition-all"
             >
               Confirmar pedido
             </button>
