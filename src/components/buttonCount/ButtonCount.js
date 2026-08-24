@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Count } from './styles.tsx';
+import Picture from "../picture/Picture.js";
 
 export default function ButtonCount(props) {
     return (
@@ -8,7 +9,7 @@ export default function ButtonCount(props) {
         className='p-2 border-transparent border-b-2 hover:border-b-2 hover:border-primary focus:border-primary focus:outline-none transition-all duration-250 ease-in-out'
         onClick={props.onClick}
       > 
-        <img src={props.src} alt={props.name} width="20" height="20" /> 
+        <Picture src={props.src} alt={props.name} width="20" height="20" /> 
         {props.count > 0 && <Count> {props.count} </Count>}
       </Button>
     )
