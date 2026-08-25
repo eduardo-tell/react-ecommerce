@@ -88,7 +88,6 @@ src/
 │   └── favorites/favorites.js
 └── hooks/
     ├── useFetch.js          # Hook para requisições com axios
-    └── useCookie.js         # Hook em desenvolvimento (incompleto)
 ```
 
 ---
@@ -213,7 +212,6 @@ A aplicação combina três abordagens:
 ## Hooks customizados
 
 - **`useFetch(url)`** — faz `GET` com axios e retorna `{ data }`; usado em `Home` para carregar produtos.
-- **`useCookie`** — esboço incompleto (referências a `axios` e `url` sem import/definição).
 
 ---
 
