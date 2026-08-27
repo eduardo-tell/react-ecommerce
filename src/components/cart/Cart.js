@@ -63,7 +63,7 @@ export default function Cart({ icon }) {
                 {cartProducts.map(cartProduct => {
                   cartProduct = { ...cartProduct, className: "card-product-inside" }
                   return (
-                    <CardProduct key={cartProduct.id} props={cartProduct} />
+                    <CardProduct key={cartProduct.id} product={cartProduct} />
                   )
                 })}
               </div>

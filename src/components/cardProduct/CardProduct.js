@@ -6,27 +6,27 @@ import { toggleFavorite } from "../../features/favorites/favorites.js";
 import { selectIsProductFavorite } from "../../features/favorites/selectors.js";
 import { ButtonFavorite, ButtonCart, ContentBody, CardProductImage, CardProductContent } from "./styles.tsx";
 
-export default function CardProduct({ props }) {
+export default function CardProduct({ product }) {
     const dispatch = useDispatch();
-    const isInCart = useSelector(state => selectIsProductInCart(state, props.id));
-    const isFavorite = useSelector(state => selectIsProductFavorite(state, props.id));
+    const isInCart = useSelector(state => selectIsProductInCart(state, product.id));
+    const isFavorite = useSelector(state => selectIsProductFavorite(state, product.id));
 
-    const isInsideCart = props.className?.includes("card-product-inside");
+    const isInsideCart = product.className?.includes("card-product-inside");
 
     const cartHandler = () => {
-        dispatch(toggleCartProduct(props));
+        dispatch(toggleCartProduct(product));
     }
 
     const favoriteHandler = () => {
-        dispatch(toggleFavorite(props));
+        dispatch(toggleFavorite(product));
     }
 
     return (
-        <ContentBody as="article" className={props.className + ` group`}>
+        <ContentBody as="article" className={product.className + ` group`}>
             <CardProductImage>
-                <Link to={`/produto/${props.id}`} aria-label={`Ver detalhes de ${props.title}`}>
+                <Link to={`/produto/${product.id}`} aria-label={`Ver detalhes de ${product.title}`}>
                     <picture>
-                        <img src={props.thumbnail} alt={props.title} />
+                        <img src={product.thumbnail} alt={product.title} />
                     </picture>
                 </Link>
 
@@ -38,26 +38,26 @@ export default function CardProduct({ props }) {
             </CardProductImage>
             <CardProductContent className="card-product__content w-full text-center">
                 <h4>
-                    <Link to={`/produto/${props.id}`} className="font-bold hover:underline focus-visible:underline line-clamp-[2]">
-                        {props.title}
+                    <Link to={`/produto/${product.id}`} className="font-bold hover:underline focus-visible:underline line-clamp-[2]">
+                        {product.title}
                     </Link>
                 </h4>
 
                 {isInsideCart ? (
-                        <span className="text-sm text-gray-600 line-clamp-[3]">
-                        {props.description}
+                    <span className="text-sm text-gray-600 line-clamp-[3]">
+                        {product.description}
                     </span>
-                ) :  null}
+                ) : null}
 
                 <div className={isInsideCart ? "flex w-full justify-between items-center" : null}>
                     <p className="card-product__value font-bold text-primary">
-                        R${isInsideCart ? (props.price * props.quantity).toFixed(2) : props.price}
+                        R${isInsideCart ? (product.price * product.quantity).toFixed(2) : product.price}
                     </p>
                     {isInsideCart &&
                         <ButtonCart
                             className="ease-linear duration-200 flex-auto p-2 bg-white hover:!bg-[#c83a3a] rounded-md active"
                             onClick={cartHandler}
-                            aria-label={`Remover ${props.title} do carrinho`}
+                            aria-label={`Remover ${product.title} do carrinho`}
                         >
                             <img src="/trash.svg" width="40" height="40" alt="" />
                             <img src="/trash-white.svg" className="trash-hover hidden" width="40" height="40" alt="" />
@@ -72,7 +72,7 @@ export default function CardProduct({ props }) {
                         className={`ease-linear duration-200 flex-auto p-2 bg-white rounded-md ${isInCart ? "active" : ""}`}
                         onClick={cartHandler}
                         aria-pressed={isInCart}
-                        aria-label={isInCart ? `Remover ${props.title} do carrinho` : `Adicionar ${props.title} ao carrinho`}
+                        aria-label={isInCart ? `Remover ${product.title} do carrinho` : `Adicionar ${product.title} ao carrinho`}
                     >
                         <img src="/cart-add-icon.svg" width="20" height="20" className={`add ${isInCart ? "hidden" : ""}`} alt="Adicionar ao carrinho" />
                         <img src="/cart-add-icon-hover.svg" width="20" height="20" className="add-hover hidden" alt="Adicionar ao carrinho (hover)" />
@@ -85,7 +85,7 @@ export default function CardProduct({ props }) {
                         className={`ease-linear duration-200 delay-100 flex-auto p-2 bg-white rounded-md ${isFavorite ? "active" : ""}`}
                         onClick={favoriteHandler}
                         aria-pressed={isFavorite}
-                        aria-label={isFavorite ? `Remover ${props.title} dos favoritos` : `Adicionar ${props.title} aos favoritos`}
+                        aria-label={isFavorite ? `Remover ${product.title} dos favoritos` : `Adicionar ${product.title} aos favoritos`}
                     >
                         <img src="/star.svg" className={`default ${isFavorite ? "hidden" : ""}`} width="20" height="20" alt="Favoritar" />
                         <img src="/star-hover.svg" className={`hover hidden ${isFavorite ? "hidden" : ""}`} width="20" height="20" alt="Favoritar" />

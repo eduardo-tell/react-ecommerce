@@ -49,7 +49,7 @@ export default function Checkout() {
             {cartItems.map(product => {
               product = { ...product, className: "card-product-inside" };
               return (
-                <CardProduct key={product.id} props={product} />
+                <CardProduct key={product.id} product={product} />
               )
             })}
           </ul>

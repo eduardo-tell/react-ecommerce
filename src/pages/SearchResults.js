@@ -36,7 +36,7 @@ export default function SearchResults() {
         ) : (
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-4 lg:px-0 gap-7">
             {products.map(product => (
-              <CardProduct key={product.id} props={product} />
+              <CardProduct key={product.id} product={product} />
             ))}
           </div>
         )}
