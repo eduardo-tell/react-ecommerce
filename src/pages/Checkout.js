@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CardProduct from '../components/cardProduct/CardProduct';
+import CardItem from '../components/cardItem/CardItem';
 import { selectCartItems, selectCartTotal } from '../features/cart/selectors';
 
 export default function Checkout() {
@@ -49,7 +49,7 @@ export default function Checkout() {
             {cartItems.map(product => {
               product = { ...product, className: "card-product-inside" };
               return (
-                <CardProduct key={product.id} product={product} />
+                <CardItem key={product.id} product={product} />
               )
             })}
           </ul>

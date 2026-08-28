@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartDrawer } from './styles.tsx';
 import ButtonCount from "../buttonCount/ButtonCount";
-import CardProduct from "../cardProduct/CardProduct";
+import CardItem from "../cardItem/CardItem";
 import { selectCartItems, selectCartTotal } from "../../features/cart/selectors";
 
 export default function Cart({ icon }) {
@@ -63,7 +63,7 @@ export default function Cart({ icon }) {
                 {cartProducts.map(cartProduct => {
                   cartProduct = { ...cartProduct, className: "card-product-inside" }
                   return (
-                    <CardProduct key={cartProduct.id} product={cartProduct} />
+                    <CardItem key={cartProduct.id} product={cartProduct} />
                   )
                 })}
               </div>

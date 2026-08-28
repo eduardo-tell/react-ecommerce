@@ -7,7 +7,7 @@ import { selectIsProductInCart } from '../features/cart/selectors';
 import { toggleFavorite } from '../features/favorites/favorites';
 import { selectIsProductFavorite } from '../features/favorites/selectors';
 import './productDetails.scss';
-import { ButtonFavorite } from "../components/cardProduct/styles.tsx";
+import { ButtonFavorite } from "../components/productCard/styles.tsx";
 
 export default function ProductDetails() {
   const { id } = useParams();

@@ -1,7 +1,7 @@
 import { MouseEventHandleruseEffect, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
-import CardProduct from '../components/cardProduct/CardProduct';
+import CardProduct from '../components/productCard/ProductCard';
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams();

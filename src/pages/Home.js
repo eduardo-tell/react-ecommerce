@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import CardProduct from '../components/cardProduct/CardProduct';
+import ProductCard from '../components/productCard/ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../features/products/products';
 import { useFetch } from '../hooks/useFetch';
@@ -28,7 +28,7 @@ export default function Home() {
           <h2 className="w-full text-center mb-5 mt-7 text-4xl font-bold">Produtos</h2>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-4 lg:px-0 gap-7">
             {products?.map(product => (
-              <CardProduct key={product.id} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>

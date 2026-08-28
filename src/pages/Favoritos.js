@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CardProduct from '../components/cardProduct/CardProduct';
+import CardItem from '../components/cardItem/CardItem';
 import { selectFavorites } from '../features/favorites/selectors';
 
 export default function Favoritos() {
@@ -21,7 +21,7 @@ export default function Favoritos() {
         ) : (
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-4 lg:px-0 gap-7">
             {favorites.map(product => (
-              <CardProduct key={product.id} product={product} />
+              <CardItem key={product.id} product={product} />
             ))}
           </div>
         )}
