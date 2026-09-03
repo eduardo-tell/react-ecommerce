@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartDrawer } from './styles.tsx';
@@ -12,43 +12,38 @@ export default function Cart({ icon }) {
   const dialogRef = useRef(null)
   const closeButtonRef = useRef(null)
   const triggerButtonRef = useRef(null)
-
-  function toggleCartDrawer(action) {
-    if (action === '1' && !dialogRef.current?.classList.contains('open')) {
-      dialogRef.current?.classList.add('open')
-      closeButtonRef.current?.focus()
-      return
-    }
-
-    dialogRef.current?.classList.remove('open')
-    triggerButtonRef.current?.focus()
-  }
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleKeyDown = event => {
-      if (event.key === 'Escape') {
-        toggleCartDrawer()
-      }
+      if (event.key === 'Escape') setIsOpen(false)
     }
 
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
+
+    if (isOpen && !dialogRef.current?.classList.contains('open')) {
+      dialogRef.current?.classList.add('open')
+      closeButtonRef.current?.focus()      
+    } else {
+      dialogRef.current?.classList.remove('open')
+      triggerButtonRef.current?.focus()
+    }
+  }, [isOpen])
 
   return (
     <>
       <span ref={triggerButtonRef} className="inline-flex">
-        <ButtonCount src={icon} count={cartProducts?.length} name="Carrinho" onClick={() => toggleCartDrawer('1')} />
+        <ButtonCount src={icon} count={cartProducts?.length} name="Carrinho" onClick={() => setIsOpen(!isOpen)} />
       </span>
 
       <CartDrawer id="CartDrawer" ref={dialogRef} role="dialog" aria-modal="true" aria-label="Carrinho de compras">
-        <div className="CartDrawer__overlay" onClick={() => toggleCartDrawer('0')}></div>
+        <div className="CartDrawer__overlay" onClick={() => setIsOpen(!isOpen)}></div>
         <div className="py-8 cart-drawer__header items-center transition-all flex justify-between align-middle duration-250 ease-in-out border-b-2 border-[#e5e5e5]">
           <h3 className="text-base font-semibold">Seu Carrinho</h3>
           <button
             ref={closeButtonRef}
             className="p-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
-            onClick={() => toggleCartDrawer('0')}
+            onClick={() => setIsOpen(!isOpen)}
             aria-label="Fechar carrinho"
           >
             <svg part="hdt-close-icon" role="presentation" fill="none" focusable="false" width="16" height="14" viewBox="0 0 16 14">
@@ -75,7 +70,6 @@ export default function Cart({ icon }) {
                 </p>
                 <Link
                   to="/checkout"
-                  onClick={() => toggleCartDrawer('0')}
                   className="mt-4 block text-center transition-all bg-[#A3F7BF] text-b rounded-md py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-[#29A29D] hover:text-white focus-visible:outline-blue-600"
                 >
                   Finalizar compra
