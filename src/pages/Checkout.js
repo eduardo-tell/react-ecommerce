@@ -1,17 +1,22 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CardItem from '../components/cardItem/CardItem';
 import { selectCartItems, selectCartTotal } from '../features/cart/selectors';
+import { clearCart } from '../features/cart/cart.js';
 
 export default function Checkout() {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
+  const dispatch = useDispatch();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [orderConfirmed, setOrderConfirmed] = useState(false);
 
-  const onSubmit = () => setOrderConfirmed(true);
+  const onSubmit = () => {
+    dispatch(clearCart());
+    setOrderConfirmed(true);
+  }
 
   if (cartItems.length === 0 && !orderConfirmed) {
     return (

@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toggleCartProduct } from "../../features/cart/cart.js";
-import { selectIsProductInCart } from "../../features/cart/selectors.js";
-import { toggleFavorite } from "../../features/favorites/favorites.js";
-import { selectIsProductFavorite } from "../../features/favorites/selectors.js";
-import { ButtonFavorite, ButtonCart, ContentBody, CardProductImage, CardProductContent } from "./styles.tsx";
+import { ButtonCart, ContentBody, CardProductImage, CardProductContent } from "./styles.tsx";
 
 export default function CardProduct({ product }) {
     const dispatch = useDispatch();

@@ -15,8 +15,11 @@ const cart = createSlice({
         state.splice(index, 1)
       }
     },
+    clearCart() {
+      return []
+    }
   }
 })
 
-export const { toggleCartProduct } = cart.actions
+export const { toggleCartProduct, clearCart } = cart.actions
 export default cart.reducer

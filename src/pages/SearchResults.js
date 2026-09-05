@@ -1,4 +1,4 @@
-import { MouseEventHandleruseEffect, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import CardProduct from '../components/productCard/ProductCard';
