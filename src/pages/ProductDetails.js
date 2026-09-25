@@ -90,10 +90,10 @@ export default function ProductDetails() {
               </ul>
             )}
 
-            <div class="flex">
+            <div class="flex gap-2 mt-6">
                 <button
                   type="button"
-                  className={`w-[calc(100%-3.5rem)] bg-secundary hover:bg-primary hover:text-white py-3 rounded-md transition-all duration-200 ${isInCart ? 'bg-[#c83a3a] text-white' : 'bg-black text-black'}`}
+                  className={`flex-1 bg-secundary hover:bg-primary hover:text-white py-3 rounded-md transition-all duration-200 ${isInCart ? 'bg-[#c83a3a] text-white' : 'bg-black text-black'}`}
                   aria-pressed={isInCart}
                   onClick={() => dispatch(toggleCartProduct(product))}
                 >

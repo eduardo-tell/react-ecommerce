@@ -104,7 +104,6 @@ export const ButtonCart = styled.button`
 `;
 
 export const ContentBody = styled.div`
-    aspect-ratio: 1/1.2;
     position: relative;
     overflow: hidden;
     display: flex;
