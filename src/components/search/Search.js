@@ -2,12 +2,11 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDebounce } from '../../hooks/useDebounce';
-import ButtonCount from "../buttonCount/ButtonCount";
 import { MainSearch } from './styles.tsx';
 import { Link } from "react-router-dom";
 
 export default function Search({ icon }) {
-  const [isOpen, setIsOpen] = useState(false)
+  // const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const [activeIndex, setActiveIndex] = useState(-1)
@@ -32,26 +31,26 @@ export default function Search({ icon }) {
     return () => { isCurrentRequest = false }
   }, [debouncedQuery])
 
-  function openSearch() {
-    setIsOpen(true)
-    setTimeout(() => inputRef.current?.focus(), 0)
-  }
+  // function openSearch() {
+  //   setIsOpen(true)
+  //   setTimeout(() => inputRef.current?.focus(), 0)
+  // }
 
-  function closeSearch() {
-    setIsOpen(false)
-    setActiveIndex(-1)
-  }
+  // function closeSearch() {
+  //   setIsOpen(false)
+  //   setActiveIndex(-1)
+  // }
 
   function goToProduct(productId) {
     navigate(`/produto/${productId}`)
     setQuery('')
-    closeSearch()
+    // closeSearch()
   }
 
   function goToSearchResults() {
     if (query.trim().length === 0) return
     navigate(`/busca?q=${encodeURIComponent(query.trim())}`)
-    closeSearch()
+    // closeSearch()
   }
 
   function handleInputChange(event) {
@@ -60,10 +59,10 @@ export default function Search({ icon }) {
   }
 
   function handleKeyDown(event) {
-    if (event.key === 'Escape') {
-      closeSearch()
-      return
-    }
+    // if (event.key === 'Escape') {
+    //   closeSearch()
+    //   return
+    // }
 
     if (event.key === 'ArrowDown') {
       event.preventDefault()

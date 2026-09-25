@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toggleCartProduct } from "../../features/cart/cart.js";
 import { ButtonCart, ContentBody, CardProductImage, CardProductContent } from "./styles.tsx";
