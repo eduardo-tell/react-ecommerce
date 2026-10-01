@@ -1,6 +1,6 @@
 {
-  "name": "react-ecommerce",
-  "version": "1.1.0",
+  "name": "react-ecommerce-novo2",
+  "version": "2.0.0",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
