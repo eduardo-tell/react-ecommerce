@@ -39,18 +39,29 @@ export function CartLineItem({ item }) {
           <p className="font-bold text-primary">{formatBRL(lineTotal)}</p>
           <button
             type="button"
-            className="p-2 rounded-md bg-white hover:bg-[#c83a3a] group"
+            className="p-2 rounded-md bg-white hover:bg-[#c83a3a] group-trash"
             onClick={() => dispatch(toggleCartItem(item))}
             aria-label={`Remover ${item.title} do carrinho`}
           >
-            <img src="/trash.svg" width={32} height={32} alt="" className="group-hover:hidden" />
-            <img
-              src="/trash-white.svg"
-              width={32}
-              height={32}
-              alt=""
-              className="hidden group-hover:block"
-            />
+            <figure className="group-trash-hover:hidden">
+              <img 
+                src="/trash.svg" 
+                width={32} 
+                height={32} 
+                alt="" 
+                className="size-5" 
+              />
+            </figure>
+
+            <figure className="hidden group-trash-hover:block">
+              <img
+                src="/trash-white.svg"
+                width={32}
+                height={32}
+                alt=""
+                className="size-5"
+              />
+            </figure>
           </button>
         </div>
       </div>
