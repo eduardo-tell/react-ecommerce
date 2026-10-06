@@ -22,7 +22,7 @@ export function SiteHeader() {
             <span className="lg:hidden">E</span>
           </Link>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 justify-end w-full lg:w-auto">
             <SearchField />
             <FavoritesLink />
             <CartWidget />

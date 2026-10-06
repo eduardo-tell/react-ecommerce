@@ -35,7 +35,7 @@ export function CartDrawer({ open, onClose }) {
           </button>
         </header>
 
-        <div className="flex-1 overflow-y-auto p-4 flex flex-col justify-between">
+        <div className="flex-1 overflow-y-auto pt-4 pl-4 pr-4 flex flex-col justify-between">
           {items.length === 0 ? (
             <p className="text-center py-8">Seu carrinho está vazio.</p>
           ) : (
@@ -48,7 +48,7 @@ export function CartDrawer({ open, onClose }) {
                 ))}
               </ul>
 
-              <footer className="border-t-2 border-[#e5e5e5] pt-4 mt-4 sticky bottom-0 bg-white">
+              <footer className="border-t-2 border-[#e5e5e5] pt-4 pb-4 mt-4 sticky bottom-0 bg-white">
                 <p className="flex justify-between font-semibold text-lg">
                   <span>Total</span>
                   <span>{formatBRL(total)}</span>

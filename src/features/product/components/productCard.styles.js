@@ -72,6 +72,9 @@ export const ActionButton = styled.button`
   background: #fff;
   transform: translateX(160px);
   transition: transform 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media (max-width: 1023px) {
     transform: translateX(0);

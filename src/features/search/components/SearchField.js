@@ -79,7 +79,7 @@ export function SearchField() {
 
   return (
     <div
-      className="relative border-2 border-[#393E46] rounded-lg hover:border-primary focus-within:border-primary transition-colors lg:w-[300px]"
+      className="relative border-2 border-[#393E46] rounded-lg hover:border-primary focus-within:border-primary transition-colors w-full lg:w-[300px]"
     >
       <label htmlFor="site-search" className="sr-only">Buscar produtos</label>
       <input
